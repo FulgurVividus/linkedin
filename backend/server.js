@@ -8,6 +8,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 9000;
 
+// middlewares
+app.use(express.json());
+
+// routes
 app.use("/api/v1/auth", authRoutes);
 
 app.listen(PORT, () => {
