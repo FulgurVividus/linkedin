@@ -5,6 +5,7 @@ import { createPost } from "../controllers/post.controller.js";
 import { deletePost } from "../controllers/post.controller.js";
 import { getPostById } from "../controllers/post.controller.js";
 import { createComment } from "../controllers/post.controller.js";
+import { likePost } from "../controllers/post.controller.js";
 
 const postRouter = Router();
 
@@ -22,5 +23,8 @@ postRouter.get("/:id", protectRoute, getPostById);
 
 // Path: /api/v1/posts/:id/comment (POST)
 postRouter.post("/:id/comment", protectRoute, createComment);
+
+// Path: /api/v1/posts/:id/like (POST)
+postRouter.post("/:id/like", protectRoute, likePost);
 
 export default postRouter;
