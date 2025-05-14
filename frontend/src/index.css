@@ -1,2 +1,20 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "linkedin";
+  default: true;
+  prefersdark: true;
+
+  --color-primary: "#0A66C2";
+  --color-secondary: "#FFFFFF";
+  --color-accent: "#7FC15E";
+  --color-neutral: "#000000";
+  --color-base-100: "#F3F2eF";
+  --color-info: "#5E5E5E";
+  --color-success: "#057642";
+  --color-warning: "#F5C75D";
+  --color-error: "#CC1016";
+}
