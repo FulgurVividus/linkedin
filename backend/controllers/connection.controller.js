@@ -67,7 +67,7 @@ export const acceptConnectionRequest = async (req, res) => {
         .json({ message: "Not authorized to accept this request" });
     }
 
-    if (request.status === "pending") {
+    if (request.status !== "pending") {
       return res
         .status(400)
         .json({ message: "This request has already been processed" });
