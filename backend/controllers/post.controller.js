@@ -26,6 +26,10 @@ export const createPost = async (req, res) => {
     const { content, image } = req.body;
     let newPost;
 
+    if (!content) {
+      return res.status(400).json({ message: "Content field is required" });
+    }
+
     if (image) {
       const result = await cloudinary.uploader.upload(image);
       newPost = new Post({
