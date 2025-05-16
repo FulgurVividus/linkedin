@@ -7,6 +7,7 @@ import Layout from "./components/layout/Layout";
 import SignUpPage from "./pages/auth/SignUpPage";
 import LoginPage from "./pages/auth/LoginPage";
 import HomePage from "./pages/HomePage";
+import NotificationsPage from "./pages/NotificationsPage";
 
 const App = () => {
   // get the current user
@@ -41,6 +42,12 @@ const App = () => {
         <Route
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/notifications"
+          element={
+            authUser ? <NotificationsPage /> : <Navigate to={"/login"} />
+          }
         />
       </Routes>
       <Toaster />
