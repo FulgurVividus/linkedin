@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router";
 import Sidebar from "../components/Sidebar";
 import { formatDistanceToNow } from "date-fns";
+import avatar from "../assets/avatar.png";
 
 const NotificationsPage = () => {
   const queryClient = useQueryClient();
@@ -156,8 +157,7 @@ const NotificationsPage = () => {
                       >
                         <img
                           src={
-                            notification.relatedUser.profilePicture ||
-                            "avatar.png"
+                            notification.relatedUser.profilePicture || avatar
                           }
                           alt={notification.relatedUser.name}
                           className="size-12 rounded-full object-cover"

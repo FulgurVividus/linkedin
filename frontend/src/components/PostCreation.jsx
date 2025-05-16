@@ -3,6 +3,7 @@ import { useState } from "react";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 import { Image, Loader } from "lucide-react";
+import avatar from "../assets/avatar.png";
 
 const PostCreation = ({ user }) => {
   const [content, setContent] = useState("");
@@ -71,7 +72,7 @@ const PostCreation = ({ user }) => {
     <div className="bg-secondary rounded-lg shadow mb-4 p-4">
       <div className="flex space-x-3">
         <img
-          src={user.profilePicture || "avatar.png"}
+          src={user.profilePicture || avatar}
           alt={user.name}
           className="size-12 rounded-full"
         />

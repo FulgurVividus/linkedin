@@ -1,5 +1,7 @@
 import { Bell, Home, UserPlus } from "lucide-react";
 import { Link } from "react-router";
+import avatar from "../assets/avatar.png";
+import banner from "../assets/banner.png";
 
 const Sidebar = ({ user }) => {
   return (
@@ -8,12 +10,12 @@ const Sidebar = ({ user }) => {
         <div
           className="h-16 rounded-t-lg bg-cover bg-center"
           style={{
-            backgroundImage: `url("${user.bannerImg || "banner.png"}")`,
+            backgroundImage: `url("${user.bannerImg || banner}")`,
           }}
         />
         <Link to={`/profile/${user.username}`}>
           <img
-            src={user.profilePicture || "avatar.png"}
+            src={user.profilePicture || avatar}
             alt={user.name}
             className="w-20 h-20 rounded-full mx-auto mt-[-40px]"
           />

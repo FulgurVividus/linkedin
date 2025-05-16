@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import avatar from "../assets/avatar.png";
 
 const UserCard = ({ user }) => {
   return (
@@ -8,7 +9,7 @@ const UserCard = ({ user }) => {
         className="flex flex-col items-center"
       >
         <img
-          src={user.profilePicture || "avatar.png"}
+          src={user.profilePicture || avatar}
           alt={user.name}
           className="w-24 h-24 rounded-full object-cover mb-4"
         />

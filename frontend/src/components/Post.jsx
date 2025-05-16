@@ -13,6 +13,7 @@ import { Link, useParams } from "react-router";
 import { formatDistanceToNow } from "date-fns";
 import toast from "react-hot-toast";
 import PostAction from "./PostAction";
+import avatar from "../assets/avatar.png";
 
 const Post = ({ post }) => {
   const { postId } = useParams();
@@ -104,7 +105,7 @@ const Post = ({ post }) => {
           <div className="flex items-center">
             <Link to={`/profile/${post?.author?.username}`}>
               <img
-                src={post.author.profilePicture || "avatar.png"}
+                src={post.author.profilePicture || avatar}
                 alt={post.author.name}
                 className="size-10 rounded-full mr-3"
               />
@@ -179,7 +180,7 @@ const Post = ({ post }) => {
                 className="mb-2 bg-base-100 p-2 rounded flex items-start"
               >
                 <img
-                  src={comment.user.profilePicture || "avatar.png"}
+                  src={comment.user.profilePicture || avatar}
                   alt={comment.user.name}
                   className="w-8 h-8 rounded-full mr-2 flex-shrink-0"
                 />

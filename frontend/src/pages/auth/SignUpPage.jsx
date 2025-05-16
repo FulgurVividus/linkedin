@@ -1,15 +1,12 @@
 import { Link } from "react-router";
 import SignUpForm from "../../components/auth/SignUpForm";
+import logo from "../../assets/logo.svg";
 
 const SignUpPage = () => {
   return (
     <div className="min-h-dvh flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <img
-          src="logo.svg"
-          alt="Linkedin Clone"
-          className="mx-auto h-36 w-auto"
-        />
+        <img src={logo} alt="Linkedin Clone" className="mx-auto h-36 w-auto" />
         <h2 className="text-center text-3xl font-extrabold text-gray-900 text-pretty">
           Make the most of your professional life
         </h2>
