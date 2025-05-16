@@ -9,12 +9,13 @@ import {
   ThumbsUp,
   Trash2,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import { formatDistanceToNow } from "date-fns";
 import toast from "react-hot-toast";
 import PostAction from "./PostAction";
 
 const Post = ({ post }) => {
+  const { postId } = useParams();
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
   const queryClient = useQueryClient();
 
@@ -61,6 +62,7 @@ const Post = ({ post }) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["posts"] });
+      queryClient.invalidateQueries({ queryKey: ["post", postId] });
     },
   });
 
