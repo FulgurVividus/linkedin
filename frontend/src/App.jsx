@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import NotificationsPage from "./pages/NotificationsPage";
 import NetworkPage from "./pages/NetworkPage";
 import PostPage from "./pages/PostPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const App = () => {
   // get the current user
@@ -58,6 +59,10 @@ const App = () => {
         <Route
           path="/post/:postId"
           element={authUser ? <PostPage /> : <Navigate to={"/login"} />}
+        />
+        <Route
+          path="/profile/:username"
+          element={authUser ? <ProfilePage /> : <Navigate to={"/login"} />}
         />
       </Routes>
       <Toaster />

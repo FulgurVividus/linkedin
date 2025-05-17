@@ -14,9 +14,6 @@ const ProfilePage = () => {
 
   const { data: authUser, isLoading } = useQuery({
     queryKey: ["authUser"],
-    queryFn: () => {
-      console.error = () => {};
-    },
   });
 
   // get the user profile
@@ -27,11 +24,11 @@ const ProfilePage = () => {
 
   // mutation to update the profile
   const { mutate: updateProfile } = useMutation({
-    mutationFn: (updatedData) =>
-      axiosInstance.put(`/users/profile`, updatedData),
+    mutationFn: async (updatedData) =>
+      await axiosInstance.put(`/users/profile`, updatedData),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["authUser"] });
       toast.success("Profile updated successfully");
+      queryClient.invalidateQueries(["userProfile", username]);
     },
     onError: (err) => {
       toast.error(err.response.data.message || "Failed to update profile");
@@ -46,6 +43,8 @@ const ProfilePage = () => {
   function handleSave(updatedData) {
     updateProfile(updatedData);
   }
+
+  //   console.log(userProfile);
 
   return (
     <div className="max-w-4xl mx-auto p-4">
