@@ -8,9 +8,6 @@ const Navbar = () => {
   // get the user by the queryKey
   const { data: authUser } = useQuery({
     queryKey: ["authUser"],
-    queryFn: () => {
-      console.error = () => {};
-    },
   });
 
   const queryClient = useQueryClient();
