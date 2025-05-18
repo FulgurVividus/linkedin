@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 import { Camera, Clock, MapPin, UserCheck, UserPlus, X } from "lucide-react";
@@ -80,11 +80,11 @@ const ProfileHeader = ({ userData, isOwnProfile, onSave }) => {
     },
   });
 
-  function getConnectionStatus() {
+  const getConnectionStatus = useMemo(() => {
     if (isConnected) return "connected";
     if (!isConnected) return "not_connected";
     return connectionStatus?.data?.status;
-  }
+  }, [isConnected, connectionStatus]);
 
   function renderConnectionButton() {
     const baseClass = `text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center`;
