@@ -22,7 +22,7 @@ const ProfileHeader = ({ userData, isOwnProfile, onSave }) => {
   );
 
   const isConnected = userData.connections.some(
-    (connection) => connection.id === authUser._id
+    (connection) => connection === authUser._id
   );
 
   // mutation to send connection request
